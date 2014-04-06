@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
     def load_default_data
       @data_info = Information.where("is_popular = 1").limit(1)
       @data_info = @data_info.empty? ? "empty" : @data_info[0].permalink
-      @data_event = Event.where("name = 'MKI'")[0].permalink || "empty"
-      @data_event = "empty" if @data_event.empty?
+      @data_event = Event.popular_event
+      @data_event = @data_event.empty? ? "empty" : @data_event[0].permalink
     end
 
 end
