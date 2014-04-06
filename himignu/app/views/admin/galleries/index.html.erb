@@ -1,0 +1,30 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">Galleries</div>
+  <div class="admin-inner-content-detail">
+    <%= raw msg_flash(flash) %>
+    <%= link_to "New Gallery", new_admin_gallery_path %>
+    <div class="admin-row border">
+      <div class="no">No</div>
+      <div class="gallery-name">Name</div>
+      <div class="action">&nbsp;</div>
+    </div>
+    <% @galleries.each_with_index do |gallery, x| %>
+      <div class="admin-row with-pic">
+        <div class="no"><%= x+1 %></div>
+        <div class="gallery-name"><%= gallery.name %></div>
+        <div class="action">
+          <%= link_to 'Add Image', admin_gallery_path(gallery.permalink) %>&nbsp;|&nbsp;
+          <%= link_to 'Edit', edit_admin_gallery_path(gallery.permalink) %>&nbsp;|&nbsp;
+          <%= link_to 'Delete', admin_gallery_path(gallery.permalink),
+                                :confirm => "Are you sure?", :method => :delete %>
+        </div>
+      </div>
+    <% end %>
+    <em class="simple_border"></em>
+    <div class="admin-row paginate">
+      <%= will_paginate @galleries, :link_separator => " | ",
+                                   :previous_label => "&laquo; previous",
+                                   :next_label => "next &raquo;" %>
+    </div>
+  </div>
+</div>

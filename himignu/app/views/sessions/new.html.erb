@@ -1,0 +1,17 @@
+<div class="information-content">
+  <div class="content-title">Login</div>
+  <div class="content-detail">
+    <%= raw msg_flash(flash) %>
+    <%= form_tag sessions_path do %>
+      <div class="field">
+        <div class="input-title left"><%= label_tag :email %></div>
+        <div class="input-box left">:&nbsp;&nbsp;<%= text_field_tag :email, params[:email] %></div>
+      </div>
+      <div class="field">
+        <div class="input-title left"><%= label_tag :password %></div>
+        <div class="input-box left">:&nbsp;&nbsp;<%= password_field_tag :password %></div>
+      </div>
+      <p><%= submit_tag "Login" %></p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
+  <%= javascript_include_tag "/assets/glDatePicker" %>
+  <%= stylesheet_link_tag "/assets/glDatePicker.default" %>
+<% end %>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('input#mydate').glDatePicker({
+          onClick: function(target, cell, date, data) {
+            target.val(date.getFullYear() + '-' +
+                date.getMonth() + '-' +
+                date.getDate());
+            if(data != null) {
+                alert(data.message + '\n' + date);
+            }
+          }
+        });
+    });
+</script>
+
+<% unless @event_archive.name.nil? %>
+  <div class="field" style="margin-bottom:20px">
+    <%=  link_to "Add Image", admin_event_archive_path(:id => @event_archive.id,
+                                                       :event_id => @event.permalink) %>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%=  link_to "Delete", admin_event_archive_path(:id => @event_archive.id,
+                                                    :event_id => @event.permalink),
+                           :confirm => "Are you sure?", :method => :delete %>
+  </div>
+<% end %>
+
+<div class="field">
+  <div class="input-title left"><%= f.label :name, "Name :" %></div>
+  <div class="input-box left"><%= @event.name %></div>
+</div>
+
+<div class="field">
+  <div class="input-title left"><%= f.label :theme, "Theme :" %></div>
+  <div class="input-box left"><%= f.text_field :theme %></div>
+</div>
+
+<div class="field">
+  <div class="input-title left"><%= f.label :held_on, "Held on * :" %></div>
+  <div class="input-box left"><%= f.text_field :held_on, :id => "mydate" %></div>
+</div>
+
+<div class="field">
+  <div class="input-title left"><%= f.label :content, "Content * :" %></div>
+  <div class="input-box left">&nbsp;</div>
+</div>
+<div class="field" style="height:450px;">
+  <%= f.cktext_area :content,
+                    :ckeditor => {:uiColor => "#F5CDFA", :toolbar => "Basic",
+                                  :width=>'800px', :height=>'250px'}  %>
+</div>

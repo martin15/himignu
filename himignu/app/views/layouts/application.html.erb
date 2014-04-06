@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Himignu</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= yield :javascript_includes %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container">
+    <% id_name = params[:controller]== "home" ? "-home" : "" %>
+    <!--<div id="header-container<%#= id_name %>">-->
+      <div id="header<%= id_name %>">
+        <div id="logo">
+          <%= link_to (image_tag "logo.png", :style => "width:275px;"), root_path %>
+        </div>
+        <div id="nav-menu">
+          <ul>
+            <li class="start <%= @home_selected %>"><%= link_to raw("HOME"), root_path %></li>
+            <li class="<%= @event_selected %>">
+              <%= link_to raw("EVENT"), event_path(@data_event) %>
+            </li>
+            <li class="<%= @gallery_selected %>">
+              <%= link_to raw("GALLERY"), galleries_path %>
+            </li>
+            <li class="<%= @about_selected %>">
+              <%= link_to raw("ABOUT US"), about_us_path %>
+            </li>
+            <li class="<%= @ppit_selected %>">
+              <%= link_to raw("PPIT"), ppit_path %>
+            </li>
+            <li class="<%= @information_selected %>">
+              <%= link_to raw("INFO"), information_path(@data_info) %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <%#*</div>%>
+    <%#*<div style="width: 100%;background-color: whitesmoke;height: 100%">%>
+      <div class="content">
+        <%= yield %>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <div class="quick-menu">
+          <ul>
+            <li><%= link_to raw("HOME"), root_path %></li>
+            <li><%= link_to raw("EVENT"), event_path(@data_event) %></li>
+            <li><%= link_to raw("GALLERY"), galleries_path %></li>
+            <li><%= link_to raw("ABOUT US"), about_us_path %></li>
+            <li><%= link_to raw("PPIT"), ppit_path %></li>
+            <li class="no-border">
+              <%= link_to raw("INFO"), information_path(@data_info) %>
+            </li>
+          </ul>
+          <br />
+          Copyright © 2014, HIMIGNU - all rights reserved
+        </div>
+        <div class="contact-us">
+          <div class="c-title">contact us</div>
+          <div class="c-content">
+            <span>Guang Xi Normal University</span>
+            <span>Yucai road 14</span>
+            <span>Guilin, China</span>
+            <span>Phone +86 773 5826508/5826507</span>
+            <%= image_tag "mail.png" %>&nbsp;&nbsp;himignu.guilin@live.com<br />
+          </div>
+        </div>
+      </div>
+    <%#*</div>%>
+  </div>
+</body>
+</html>

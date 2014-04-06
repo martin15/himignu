@@ -1,0 +1,43 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">New Event Images</div>
+  <div class="admin-inner-content-detail">
+    <%= form_for([:admin, @event],
+                  :url => admin_event_event_images_path(@event.permalink),
+                  :html => { :multipart => true, :method => :post}) do |f| %>
+      <%= f.error_messages %>
+      <div class="field clear-margin">
+        <div class="input-title left"><%= f.label :event_image, "Image * :" %></div>
+        <div class="input-box left"><%= f.file_field :event_image %></div>
+      </div>
+      <div class="field clear-margin">
+        <div class="input-title left">&nbsp;</div>
+        <div class="input-box left small-font">
+          Input image with size 800x600 (width x height)
+        </div>
+      </div>
+      <div class="field">
+        <%= f.submit 'Create Image' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_events_path %>
+      </div>
+    <% end %>
+    <div class="admin-event-images-title">
+      Event Images
+    </div>
+    <% @event_images.each do |event_image| %>
+      <div class="admin-event-images">
+        <div class="pic">
+          <%= image_tag event_image.event_image.url(:small) %>
+        </div>
+        <div class="action">
+          <span><%= link_to "Edit", edit_admin_event_event_image_path(
+                                :event_id => @event.permalink,
+                                :id => event_image.id ) %></span>|
+          <span><%= link_to "Delete", admin_event_event_image_path(
+                                :event_id => @event.permalink, :id => event_image.id ),
+                                :confirm => "Are you sure?", :method => :delete %></span>
+        </div>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

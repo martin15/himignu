@@ -1,0 +1,101 @@
+<% if @event == "empty" %>
+  <div class="event-content ec-size">
+    <div class="content-title ec-size">Event</div>
+    <div class="content-detail ec-size">
+      <%= msg_flash(flash) %>
+      Ooopss Sorry <br /> Cannot find the Event or There is no Event for this time
+    </div>
+  </div>
+<% else %>
+  <% content_for :javascript_includes do %>
+    <%= stylesheet_link_tag "camera" %>
+    <%= javascript_include_tag  "old_jquery.min", "jquery.easing.1.3","camera" %>
+  <% end %>
+
+  <script type="text/javascript">
+    jQuery(function(){
+      jQuery('#camera_wrap_1').camera({
+        thumbnails: false,
+        fx : 'mosaicSpiral',
+        <%#*loader	: 'none',%>
+        navigation	: false,
+        height: '400px',
+        pagination : true,
+        playPause: false,
+        imagePath: "assets"
+      });
+    });
+  </script>
+
+  <div class="event-content ec-size">
+    <div class="content-title ec-size">Event</div>
+    <div class="content-detail ec-size">
+      <div class="event-image">
+        <% if @event_images.empty? %>
+          no image yet!
+        <% else %>
+          <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+            <% @event_images.each do |event_image| %>
+                <div data-src='<%= event_image.event_image.url(:large) %>'></div>
+            <% end %>
+          </div><!-- #camera_wrap_1 -->
+        <% end %>
+      </div>
+      <div class="event-detail">
+        <div class="event-name">
+          <b>Name :</b> <%= @event.name.titleize %>
+        </div>
+        <% if @event.is_archive? %>
+          <div class="event-theme">
+            <b>Theme :</b> <%= @event.theme.titleize %>
+          </div>
+          <div class="event-date">
+            <b>Date :</b> <%= @event.held_on.strftime("%d-%B-%Y") %>
+          </div>
+        <% else %>
+          <div class="event-archive">
+            <b>Archive :</b>
+            <% @event.archives.each do |archive| %>
+            <span>
+              <%= link_to archive.year, event_path(archive.permalink) %>
+            </span>
+          <% end %>
+          </div>
+        <% end %>
+        <div class="event-info">
+          <b>Info :</b> <br />
+          <%= raw @event.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="event-menu em-size">
+    <div class="event-menu-title em-size">
+      related events
+    </div>
+    <div class="event-menu-detail em-size">
+      <ul>
+        <% @main_events.each do |main_event| %>
+          <li><%= link_to main_event.name, event_path(main_event.permalink) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="event-menu-title em-size">
+      Archive events
+    </div>
+    <div class="event-menu-detail em-size archive">
+      <ul>
+        <% @archive_events.each do |year, events| %>
+          <li><%= link_to year, "javascript:void(0)",
+                                :onclick => "display_sub_menu('#{year}');" %>
+            <ul class="child" id="<%= year %>">
+              <% events.each do |event| %>
+                <li><%= link_to event.name, event_path(event.permalink) %></li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

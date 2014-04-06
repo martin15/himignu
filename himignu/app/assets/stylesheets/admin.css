@@ -1,0 +1,162 @@
+.admin-inner-content{
+  float: left;
+  height: auto;
+  margin: 0 0 10px 0;
+}
+
+.admin-inner-content-title{
+  width: 800px;
+  height: 50px;
+  float: left;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.admin-inner-content-detail{
+  width: 800px;
+  float: left;
+  margin-top: 20px;
+}
+
+em.simple_border{
+  background-color: #000;
+  width: 800px;
+  float: left;
+  height: 2px;
+  margin-top: 10px;
+}
+
+a:hover{
+  color: #ff4936;
+}
+/*============================== DISPLAY CONTENT ====================================*/
+.admin-row{
+  float: left;
+  width: 800px;
+}
+
+.admin-row .no, .admin-row .action, .admin-row .gallery-name,
+.admin-row .information-name, .admin-row .event-name,
+.admin-row .event-archive, .admin-row .event-action, .admin-row .radio-button{
+  text-align: center;
+  float: left;
+  padding:5px;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+.border {
+  border-bottom: 1px #000 solid;
+  height:25px;
+  margin-bottom:5px;
+  margin-top: 20px;
+}
+
+.paginate{
+  margin-top: 10px;
+}
+
+.admin-row .no{
+  width: 35px;
+}
+
+.admin-row .radio-button{
+  width: 20px;
+}
+
+.admin-row .action{
+  width: 200px;
+}
+
+.admin-row .gallery-name, .admin-row .information-name{
+  width: 535px;
+}
+
+.admin-row .event-name {
+  width: 305px;
+}
+
+.admin-row .event-archive {
+  width: 160px;
+}
+
+.admin-row .event-archive span{
+  width: 40px;
+  float: left;
+}
+
+.admin-row .event-action {
+  width: 230px;
+}
+
+
+/*=================================== END ============================================*/
+
+/*============================== CONTENT FIELD =======================================*/
+.admin-inner-content-detail .field{
+  float: left;
+  width: 800px;
+  height: 23px;
+  margin-bottom: 7px;
+}
+
+.admin-inner-content-detail .input-title{
+  width: 150px;
+  margin-right: 5px;
+  float: left;
+}
+
+.admin-inner-content-detail .input-box{
+  width: 450px;
+  float: left;
+}
+
+.button{
+  margin-top: 20px;
+}
+/*=================================== END ============================================*/
+
+.admin-gallery-images-title, .admin-event-images-title{
+  width: 900px;
+  height: 40px;
+  margin: 40px 0 20px 0;
+  float: left;
+  font-size: 25px;
+}
+
+.admin-gallery-images, .admin-event-images, .admin-banners{
+  width: 210px;
+  min-height: 200px;
+  float: left;
+  margin: 0 15px 20px 0;
+  border: 1px solid #000;
+}
+
+.admin-gallery-images .pic, .admin-event-images .pic, .admin-banners .pic{
+  width: 200px;
+  min-height: 160px;
+  padding: 5px;
+  float: left;
+}
+
+.admin-gallery-images .action, .admin-event-images .action,
+.admin-banners .action, .admin-banners .destination{
+  width: 200px;
+  min-height: 30px;
+  padding: 5px;
+  float: left;
+}
+
+.admin-gallery-images .action span, .admin-event-images .action span,
+.admin-banners .action span{
+  margin: 0 6px;
+}
+
+.admin-banners, .admin-banners .pic, .admin-banners .action, .admin-banners .destination{
+  width: 375px!important;
+  border: none;
+}
+
+/*.admin-banners .destination{
+  height: 40px;
+}*/

@@ -1,0 +1,18 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">Edit Event Archive</div>
+  <div class="admin-inner-content-detail">
+    <%= raw msg_flash(flash) %>
+    <%= form_for([:admin, @event_archive],
+                  :url => admin_event_archive_path(:event_id => @event.permalink),
+                  :html => { :multipart => true, :method => :put }) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field button">
+        <%= f.submit 'Update Event Archive' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_events_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+

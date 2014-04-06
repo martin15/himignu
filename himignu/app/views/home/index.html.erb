@@ -1,0 +1,117 @@
+<% content_for :javascript_includes do %>
+  <%= stylesheet_link_tag "camera" %>
+  <%= javascript_include_tag  "old_jquery.min", "jquery.easing.1.3",
+                             "camera" %>
+<% end %>
+
+<script type="text/javascript">
+  jQuery(function(){
+    jQuery('#camera_wrap_1').camera({
+      thumbnails: false,
+      fx : 'mosaicSpiral',
+      loader	: 'none',
+      navigation	: false,
+      height: '300px',
+      pagination			: true,
+      playPause: false,
+      imagePath: "assets"
+    });
+  });
+</script>
+
+<div class="banner">
+  <div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+    <% @banners.each do |banner| %>
+      <% if banner.uri? %>
+        <div data-src='<%= banner.banner_image.url(:large) %>'
+             data-link="<%=  banner.destination %>"></div>
+      <% else %>
+        <%= raw "<div data-src='#{banner.banner_image.url(:large)}'></div>" %>
+      <% end %>
+    <% end %>
+  </div><!-- #camera_wrap_1 -->
+</div>
+<div class="clear"></div>
+
+<%# content_for :javascript_includes do %>
+  <%#= stylesheet_link_tag "light/light", "nivo-slider" %>
+  <%#= javascript_include_tag "jquery.nivo.slider" %>
+<%# end %>
+
+<%#*<script type="text/javascript">%>
+  <%#*$(window).load(function() {%>
+      <%#*$('#slider').nivoSlider({%>
+        <%#*effect: 'boxRainGrow',%>
+        <%#*pauseTime: 3000,%>
+        <%#*animSpeed: 500,%>
+        <%#*controlNav: true,%>
+        <%#*directionNav: false%>
+      <%#*});%>
+  <%#*});%>
+<%#*</script>%>
+
+<%#*<div class="banner">%>
+  <%#*<div class="slider-wrapper theme-light">%>
+      <%#*<div id="slider" class="nivoSlider">%>
+        <%# @banners.each do |banner| %>
+          <%# image_link = image_tag banner.banner_image.url(:large) %>
+          <%# if banner.uri? %>
+            <%#= link_to raw(image_link), banner.destination %>
+          <%# else %>
+            <%#= image_link %>
+          <%# end %>
+        <%# end %>
+      <%#*</div>%>
+  <%#*</div>%>
+<%#*</div>%>
+
+<div class="latest-information">
+  <div class="big-information">
+    <div class="info-title">
+      <%= @popular_event.name %>
+    </div>
+    <div class="info-content">
+      <%= raw short_desc(@popular_event.content, 80) %>
+    </div>
+    <div class="info-content-more">
+      <%= link_to "MORE", event_path(@popular_event.permalink), :class => "info-button" %>
+    </div>
+  </div>
+  <div class="small-information">
+    <div class="s-title">
+      Our Programs
+    </div>
+    <div class="s-content">
+      <ul>
+        <% @events.each do |event| %>
+          <li><%= link_to event.name, event_path(event.permalink) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="other-information">
+  <div class="ppit">
+    <div class="ppit-title">PPI Tiongkok</div>
+    <div class="ppit-content">
+      <%= raw @short_ppit.content %>
+    </div>
+    <div class="ppit-more">
+      <%= link_to "MORE >>", ppit_path %>
+    </div>
+  </div>
+  <div class="popular-info no-margin-right">
+    <div class="p-title">popular info</div>
+    <div class="p-content">
+      <ul>
+        <% color = ["red", "green", "blue"] %>
+        <% @popular_info.each_with_index do |info, x| %>
+          <li class="<%= color[x] %>">
+            <%= link_to info.name, information_path(info.permalink) %><br />
+            <span><%= raw short_desc(info.content, 10) %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

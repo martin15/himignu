@@ -1,0 +1,683 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+*{margin:0;padding:0;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
+font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl,
+dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit;
+                    font-style: inherit; font-size: 100%; font-family: inherit;
+                    vertical-align: baseline; }
+:focus { outline: 0; }
+ol, ul { list-style: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+tr, td, th{ border: 1px black solid; padding: 5px; }
+caption, th, td { text-align: left; font-weight: normal; vertical-align:middle;}
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+a img, a:hover img { border:none; }
+h1,h2,h3,h4,h5,h6 { margin:0px 0px 10px 0px; padding:0px;
+                    font-weight:normal; font-family: Cabin-Regular, Verdana,Arial,Helvetica,sans-serif; }
+a { text-decoration:none; cursor:pointer; outline:none;color:#000;}
+a:hover { text-decoration:none; }
+.clear { clear:both; margin:0px; padding:0px; height:0px; line-height:0; font-size:0; }
+.left { float:left; width:auto; border:none; }
+.right { float:right; }
+.center { text-align:center; }
+.text-right { text-align:right; }
+.text-left { text-align:left!important; }
+strong{font-weight:bold;}
+small{font-size:10px; color:white;}
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility:hidden; }
+.clearfix { display: inline-block; }
+.no-border{border: none!important;}
+* html .clearfix { height:1%; }
+html {height: 100%;}
+h3 {font-size: 20px;}
+p { font-size: 13px; line-height: 1.6em; margin-bottom: 13px;}
+body {
+  font: 14px Cabin-Regular, Verdana, arial, sans-serif;
+  margin: 0 auto;
+  background: url('../assets/bg.jpg') repeat;
+  background-attachment: fixed;
+  color: #000;
+}
+
+@font-face {
+  font-family:"Cabin-Regular";
+  src: url("fonts/Cabin-Regular.otf") format("opentype");
+}
+
+#header img, .center-header, #header form, #header ul li, #nav-menu ul li, .twit, .twit p,
+.designer, .designer p , .store p, #content-left {float: left;}
+
+#header-container, #header-container-home{
+  width: 100%;
+  background-color: white;
+  height: 150px;
+}
+
+
+#header, #header-home{
+  height: 130px;
+  background-color: #fff;
+  margin: 0 auto;
+  width: 850px;
+}
+
+#header-home, #header-container-home{
+  height: 220px!important;
+}
+
+#logo{
+  width: 300px;
+  height: 90px;
+  float: left;
+  margin: 30px 0  0 25px;
+}
+
+/********** NAV MENU ***************************/
+
+#nav-menu {
+  float: right;
+  height: 40px;
+  margin: 50px 25px 0 50px;
+  font-size: 15px;
+  border-bottom: 1px solid #000;
+  text-transform: uppercase;
+}
+
+#nav-menu ul li {
+  position:relative;
+	height: 50px;
+	vertical-align: bottom;
+  margin-left:25px;
+  text-align: center;
+  padding: 5px 0;
+}
+
+#nav-menu ul li.selected{
+  background: url("../assets/arrow-menu.png") no-repeat;
+  background-position: center 43px;
+}
+
+#nav-menu ul li.start{
+  margin-left: 0px;
+}
+
+#nav-menu ul li.sub-menu {
+  width: 200px;
+  text-align: left;
+}
+
+#nav-menu ul li.sub-menu span{
+	margin: 0 1em;
+}
+
+#nav-menu ul li a:hover {
+  color: #ff4936;
+}
+
+#nav-menu ul ul{
+  color: #6cffff;
+  background-color: #de2c29;
+	position: absolute;
+	z-index: 500;
+	top: 48px;
+	display: none;
+	margin:-1em 0 0 -1em;
+	width: 200px;
+  left: 30px;
+  font-size: 17px;
+}
+
+#nav-menu ul ul a{
+  color: #6cffff;
+  background-color: #de2c29;
+}
+
+#nav-menu ul ul li{	float: none !important;	border-right: 0px !important;}
+/********** END NAV MENU ***************************/
+
+
+/*=========================CONTAINER===============*/
+#container{
+/*  background-color: white;*/
+  min-height: 100%;
+/*  width: 1200px;*/
+  margin: 0 auto;
+}
+/*=========================CONTAINER===============*/
+
+
+/*================================FOOTER================================================*/
+#footer {
+  background-color: whitesmoke;
+  height: 175px;
+  padding: 15px 25px 0 25px;
+  margin: 0 auto;
+  width: 800px;
+}
+
+#footer ul li {
+  float: left;
+  margin-right: 5px;
+  border-right: 1px solid #000;
+  padding-right: 5px;
+  line-height: 10px;
+}
+
+#footer ul li a { color: #000; text-transform: uppercase;}
+#footer ul li a:hover, #footer ul li a.active {color:#ff4936;}
+
+#footer .quick-menu{
+  float: left;
+  width: 525px;
+  margin-top: 10px;
+}
+
+#footer .contact-us,
+#footer .contact-us .c-title,
+#footer .contact-us .c-content{
+  width: 250px;
+  float: left;
+}
+
+#footer .contact-us .c-content span{
+  width: 250px;
+  float: left;
+}
+
+#footer .contact-us .c-title{
+  font-size: 30px;
+  text-transform: uppercase;
+}
+/*=======================================================================================*/
+
+
+.banner{
+  height: 350px;
+  width: 800px;
+  position: relative;
+  top: -145px;
+  margin-bottom: 10px;
+}
+
+.no-margin-right{
+  margin-right: 0!important;
+}
+
+.latest-information{
+  margin: -140px 0 40px;
+  height:430px;
+  float: left;
+/*  top: -140px;
+  position: relative;*/
+}
+
+.big-information{
+  float: left;
+  width: 500px;
+  height: 420px;
+  margin: 25px 25px 0 0;
+}
+
+.big-information .info-title{
+  float: left;
+  width: 500px;
+  font-size: 45px;
+  text-align: left;
+  text-transform: uppercase;
+  color: #77767F;
+  margin-bottom: 10px;
+}
+
+.big-information .info-content{
+  float: left;
+  width: 500px;
+  height: 215px;
+  line-height: 22px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.big-information .info-content-more{
+  height: 50px;
+  float: left;
+  width: 500px;
+}
+
+.small-information{
+  float: left;
+  width: 270px;
+  height: 400px;
+  margin: 10px 0px 0 0;
+}
+
+.small-information .s-title{
+  float: left;
+  width: 230px;
+  height: 80px;
+  background-color: #ec1e24;
+  font-size: 35px;
+  padding: 10px 20px;
+  text-align: left;
+  text-transform: uppercase;
+  color: white;
+}
+
+.small-information .s-content{
+  float: left;
+  width: 230px;
+  height: 290px;
+  padding: 10px 20px;
+  border-bottom: solid 10px #ec1e24;
+  background-color: #fff;
+}
+
+/*.small-information .button{
+  float: left;
+  height: 30px;
+  width: 230px;
+  color: #ec1e24;
+  padding: 10px 20px;
+  background-color: #fff;
+  text-align: right;
+}
+
+.small-information .button a{
+  color: #ec1e24;
+}
+
+.small-information .button a:hover{
+  color: #ec1e24;
+  text-decoration: underline;
+}*/
+
+.info-button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}
+
+.info-button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#777777;
+}
+
+.info-button:active {
+	position:relative;
+	top:1px;
+}
+
+.other-information{
+  height:400px;
+  float: left;
+}
+
+.other-information .ppit, .other-information .our-programs,
+.other-information .popular-info{
+  margin-right: 30px;
+  float: left;
+}
+
+.other-information .ppit .ppit-title,
+.other-information .popular-info .p-title{
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  height: 40px;
+}
+
+.other-information .popular-info .p-content{
+  height: 310px;
+}
+
+.other-information .ppit .ppit-content{
+  height: 270px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.other-information .ppit .ppit-more{
+  height: 30px;
+  float: right;
+}
+
+.other-information .ppit .ppit-title,
+.other-information .ppit .ppit-content,
+.other-information .ppit{
+  width: 400px!important;
+}
+
+.other-information .popular-info,
+.other-information .popular-info .p-title,
+.other-information .popular-info .p-content{
+  width: 340px!important;
+}
+
+.small-information .s-content ul li,
+.information-menu ul li,
+.event-menu ul li{
+  background: url("../assets/arrow-list.png") no-repeat;
+  background-position: center left;
+  text-transform: uppercase;
+  padding-left: 23px;
+  line-height: 30px;
+}
+
+.other-information .our-programs .o-content ul li a:hover,
+.information-menu ul li a:hover, .event-menu ul li a:hover{
+  text-decoration: underline;
+}
+
+
+.other-information .popular-info .p-content ul li{
+  text-transform: uppercase;
+  padding-left: 45px;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.other-information .popular-info .p-content ul li span{
+  font-size: 14px;
+  text-transform: none;
+  line-height: 15px;
+}
+
+.red a{color: #ce461d;} .green a{color: #7cb337;} .blue a{color: #1097d9;}
+
+.red{
+  background: url("../assets/arrow-red.png") no-repeat;
+}
+
+.green{
+  background: url("../assets/arrow-green.png") no-repeat;
+}
+
+.blue{
+  background: url("../assets/arrow-blue.png") no-repeat;
+}
+
+/*===================CONTENT===========================================*/
+.content{
+  background-color: whitesmoke;
+  width: 800px;
+  min-height: 400px;
+  margin: 0 auto;
+  border-bottom: 2px solid #000;
+  padding: 55px 25px 40px;
+}
+
+.content-title{
+  width: 800px;
+  height: 50px;
+  float: left;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.content-detail{
+  width: 800px;
+  float: left;
+  margin-top: 20px;
+  line-height: 25px;
+  text-align: justify;
+}
+
+.im-size, .em-size{
+  width: 200px!important;
+}
+
+.ic-size, .ec-size{
+  width: 550px!important;
+}
+
+.information-content, .event-content{
+  float: left;
+  height: auto;
+  margin: 0 50px 10px 0;
+}
+
+.information-menu, .event-menu{
+  float: left;
+  height: auto;
+}
+
+.information-menu-title, .event-menu-title{
+  float: left;
+  height: 50px;
+  font-size: 22px;
+  text-transform: uppercase;
+  margin-top: 70px;
+}
+
+.information-menu-detail, .event-menu-detail{
+  float: left;
+}
+
+.information-content .title{
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.event-image{
+  width: 550px;
+  height: 410px;
+  float: left;
+  margin-bottom: 35px;
+  z-index: -9999;
+}
+
+.event-name{
+  font-size: 20px;
+}
+
+.event-name, .event-detail, .event-info, .event-archive, .event-theme,
+.event-date{
+  float: left;
+  width: 550px;
+}
+
+.event-menu .archive ul li {
+  background: none;
+}
+
+.event-menu ul li ul.child{
+  display: none;
+}
+
+.event-menu ul li ul.child li{
+  background: url("../assets/arrow-list.png") no-repeat;
+  background-position: center left;
+  text-transform: uppercase;
+  padding-left: 23px;
+  line-height: 30px;
+}
+
+/*============================== GALLERY =======================================*/
+.content-gallery{
+  width: 380px;
+  height: auto;
+  background-color: #fff;
+  float: left;
+}
+.margin-t{
+  margin-top: 40px;
+}
+
+.margin-r{
+  margin-right: 40px;
+}
+
+.content-gallery-image{
+  margin: 20px 30px 10px;
+  height: 240px;
+  width: 320px;
+  float: left;
+}
+
+.red-line{
+  width: 380px;
+  border-bottom: 2px solid #EC1E24;
+  height: 2px;
+  float: left;
+}
+
+.content-gallery-name{
+  margin: 10px 10px 0;
+  height: 25px;
+  font-size: 25px;
+  width: 360px;
+  float: left;
+  text-align: center;
+  overflow: hidden;
+}
+
+.content-gallery-count{
+  height: 20px;
+  font-size: 13px;
+  width: 360px;
+  text-align: center;
+  float: left;
+  margin: 0 10px 10px 10px;
+}
+
+.content-gallery-detail{
+  width: 200px;
+  height: 150px;
+  float: left;
+  margin: 0 50px 20px 0;
+}
+
+.no-margin-r{
+  margin-right: 0px!important;
+}
+
+.gallery-detail-frame{
+  padding: 0 50px;
+  width: 700px;
+  margin-top: 40px;
+}
+/*=================================== END ===========================================*/
+/*=================================== FIELD =========================================*/
+.field{
+  float: left;
+  width: 800px;
+  height: 23px;
+  margin-bottom: 7px;
+}
+
+.input-title{
+  width: 150px;
+  margin-right: 5px;
+  float: left;
+}
+
+.input-box{
+  width: 450px;
+  float: left;
+}
+/*=================================== END ===========================================*/
+/*============================== FLASH NOTICE =======================================*/
+.error, .alert, .notice{
+  border: solid 1px red;
+  color: red;
+  background-color: pink;
+  height: 20px;
+  padding: 3px;
+}
+
+.notice{
+  border: solid 1px blue;
+  color: blue;
+  background-color: lightblue;
+}
+/*================================= END ==========================================*/
+/*================================= ERRORS ==========================================*/
+#error_explanation, #errorExplanation {
+  width: 500px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2, #errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 18px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation p, #errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding-top:15px;
+}
+
+#error_explanation ul, #errorExplanation ul{
+  font-size: 15px;
+  list-style: square inside;
+  color:#000000;
+  margin-top:10px;
+}
+
+#error_explanation ul li, #errorExplanation ul li {
+  margin-left:15px;
+}
+
+.field_with_errors {
+  border: 1px solid  #ff3333;
+}
+/*================================== END ===========================================*/
+

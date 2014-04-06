@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Himignu</title>
+  <%= stylesheet_link_tag    "application", "admin", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= yield :javascript_includes %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <div id="logo">
+        <%= link_to (image_tag "logo.png", :style => "width:275px;"), root_path %>
+      </div>
+      <div id="nav-menu" style="font-size: 14px;margin-left: 30px;">
+        <ul>
+          <li class="start <%= @home_selected %>"><%= link_to raw("HOME"), admin_path %></li>
+          <li class="<%= @event_selected %>">
+            <%= link_to raw("EVENT"), admin_events_path %>
+          </li>
+          <li class="<%= @gallery_selected %>">
+            <%= link_to raw("GALLERY"), admin_galleries_path %>
+          </li>
+          <li class="<%= @about_selected %>">
+            <%= link_to raw("ABOUT US"), edit_admin_information_path("about-us") %>
+          </li>
+          <li class="<%= @ppit_selected %>">
+            <%= link_to raw("PPIT"), edit_admin_information_path("ppit") %>
+          </li>
+          <li class="<%= @information_selected %>">
+            <%= link_to raw("INFO"), admin_informations_path %>
+          </li>
+          <li>
+            <%= link_to raw("LOGOUT"), logout_path %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content">
+      <%= yield %>
+      <div class="clear"></div>
+    </div>
+
+    <div id="footer" style="height:70px!important;">
+      <div class="quick-menu">
+        <ul>
+          <li><%= link_to raw("HOME"), admin_path %></li>
+          <li><%= link_to raw("EVENT"), admin_events_path %></li>
+          <li><%= link_to raw("GALLERY"), "#" %></li>
+          <li><%= link_to raw("ABOUT US"), about_us_path %></li>
+          <li><%= link_to raw("PPIT"), about_us_path %></li>
+          <li class="no-border"><%= link_to raw("INFO"), informations_path %></li>
+        </ul>
+        <br />
+        Copyright © 2014, HIMIGNU - all rights reserved
+      </div>
+    </div>
+  </div>
+</body>
+</html>

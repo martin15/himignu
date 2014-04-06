@@ -1,0 +1,46 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">New Gallery Images</div>
+  <div class="admin-inner-content-detail">
+    <%= form_for([:admin, @gallery],
+                  :url => admin_gallery_gallery_images_path(@gallery.permalink),
+                  :html => { :multipart => true, :method => :post}) do |f| %>
+      <%= f.error_messages %>
+      <div class="field clear-margin">
+        <div class="input-title left"><%= f.label :gallery_image, "Image * :" %></div>
+        <div class="input-box left"><%= f.file_field :gallery_image %></div>
+      </div>
+      <div class="field clear-margin">
+        <div class="input-title left">&nbsp;</div>
+        <div class="input-box left small-font">
+          Input image with size 800x600 (width x height)
+        </div>
+      </div>
+      <div class="field">
+        <%= f.submit 'Create Image' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_galleries_path %>
+      </div>
+    <% end %>
+    <div class="admin-gallery-images-title">
+      Gallery Images
+    </div>
+    <% @gallery_images.each do |gallery_image| %>
+      <div class="admin-gallery-images">
+        <div class="pic">
+          <%= image_tag gallery_image.gallery_image.url(:small) %>
+        </div>
+        <div class="action">
+          <span><%= gallery_image.is_primary? ? "Is Primary" :
+              (link_to "Set as Primary", set_primary_admin_gallery_gallery_image_path(
+                        :gallery_id => @gallery.permalink, :id => gallery_image.id)) %></span>|
+          <span><%= link_to "Edit", edit_admin_gallery_gallery_image_path(
+                                :gallery_id => @gallery.permalink,
+                                :id => gallery_image.id ) %></span>|
+          <span><%= link_to "Delete", admin_gallery_gallery_image_path(
+                                :gallery_id => @gallery.permalink, :id => gallery_image.id ),
+                                :confirm => "Are you sure?", :method => :delete %></span>
+        </div>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

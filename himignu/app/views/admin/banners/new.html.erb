@@ -1,0 +1,33 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">New Banner</div>
+  <div class="admin-inner-content-detail">
+    <%= form_for([:admin, @banner],
+                  :url => admin_banners_path,
+                  :html => { :multipart => true, :method => :post}) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field">
+        <%= f.submit 'Create Banner' %>
+      </div>
+    <% end %>
+    <div class="admin-event-images-title">
+      Banners
+    </div>
+    <% @banners.each do |banner| %>
+      <div class="admin-banners">
+        <div class="pic">
+          <%= image_tag banner.banner_image.url(:medium) %>
+          <div class="destination">Destination&nbsp;:&nbsp;
+            <%= banner.destination.nil? ? "-" : banner.destination  %>
+          </div>
+        </div>
+        <div class="action">
+          <span><%= link_to "Edit", edit_admin_banner_path(banner.id ) %></span>|
+          <span><%= link_to "Delete", admin_banner_path(banner.id ),
+                                :confirm => "Are you sure?", :method => :delete %></span>
+        </div>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

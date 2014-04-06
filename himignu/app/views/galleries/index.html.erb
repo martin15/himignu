@@ -1,0 +1,42 @@
+<% content_for :javascript_includes do %>
+  <%= stylesheet_link_tag "camera" %>
+  <%= javascript_include_tag  "old_jquery.min", "jquery.easing.1.3","camera" %>
+<% end %>
+
+<script type="text/javascript">
+  jQuery(function(){
+    jQuery('#camera_wrap_1').camera({
+      thumbnails: false,
+      fx : 'mosaicSpiral',
+      navigation	: false,
+      height: '400px',
+      pagination : true,
+      playPause: false,
+      imagePath: "assets"
+    });
+  });
+</script>
+
+<div class="information-content">
+  <div class="content-title">Galleries</div>
+  <div class="content-detail">
+    <% @galleries.each_with_index do |gallery, x| %>
+      <% margin = x%2 == 1 ? "" : " margin-r" %>
+      <% margin += " margin-t" if x>1 %>
+      <div class="content-gallery<%= margin %>">
+        <div class="content-gallery-image">
+          <%= link_to (image_tag gallery.primary_image),
+                       gallery_path(gallery.permalink) %>
+        </div>
+        <span class="red-line">&nbsp;</span>
+        <div class="content-gallery-name">
+          <%= link_to gallery.name.titleize, gallery_path(gallery.permalink) %>
+        </div>
+        <div class="content-gallery-count">
+          <%= link_to "#{gallery.gallery_images.size} Photos",
+                      gallery_path(gallery.permalink)%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

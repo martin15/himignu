@@ -1,0 +1,16 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">New Event</div>
+  <div class="admin-inner-content-detail">
+    <%= raw msg_flash(flash) %>
+    <%= form_for([:admin, @event], :url => admin_events_path,
+                 :html => { :multipart => true}) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field button">
+        <%= f.submit 'Create Event' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_events_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

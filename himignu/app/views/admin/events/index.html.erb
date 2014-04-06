@@ -1,0 +1,47 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">Events</div>
+  <div class="admin-inner-content-detail">
+    <%= raw msg_flash(flash) %>
+    <%= link_to "New Event", new_admin_event_path %>
+    <div class="admin-row border">
+      <div class="radio-button">&nbsp;</div>
+      <div class="no">No</div>
+      <div class="event-name">Name</div>
+      <div class="event-archive">Archive</div>
+      <div class="event-action">&nbsp;</div>
+    </div>
+    <% @events.each_with_index do |event, x| %>
+      <div class="admin-row with-pic">
+        <div class="radio-button">
+          <%= radio_button_tag :is_popular, true, event.is_popular,
+                              {:name => "radio", :class => "radio",
+                               :onclick => "choose_popular_event('#{event.permalink}')"} %>
+        </div>
+        <div class="no"><%= x+1 %></div>
+        <div class="event-name"><%= event.name %></div>
+        <div class="event-archive">
+          <% event.archives.each do |archive| %>
+            <span>
+              <%= link_to archive.year,
+                          edit_admin_event_archive_path(:event_id => event.permalink, 
+                                                        :id => archive.id) %>
+            </span>
+          <% end %>
+        </div>
+        <div class="event-action">
+          <%= link_to 'Add Image', admin_event_path(event.permalink) %>&nbsp;|&nbsp;
+          <%= link_to 'Edit', edit_admin_event_path(event.permalink) %>&nbsp;|&nbsp;
+          <%= link_to 'Delete', admin_event_path(event.permalink),
+              :confirm => "Are you sure?", :method => :delete %>&nbsp;|&nbsp;
+          <%= link_to 'Archive', new_admin_event_archive_path(:event_id => event.permalink) %>
+        </div>
+      </div>
+    <% end %>
+    <em class="simple_border"></em>
+    <div class="admin-row paginate">
+      <%= will_paginate @events, :link_separator => " | ",
+                                   :previous_label => "&laquo; previous",
+                                   :next_label => "next &raquo;" %>
+    </div>
+  </div>
+</div>

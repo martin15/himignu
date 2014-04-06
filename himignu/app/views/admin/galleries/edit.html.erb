@@ -1,0 +1,17 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">Edit Gallery</div>
+  <div class="admin-inner-content-detail">
+    <%= raw msg_flash(flash) %>
+    <%= form_for([:admin, @gallery], :url => admin_gallery_path,
+                  :html => { :multipart => true, :method => :put }) do |f| %>
+      <%= f.error_messages %>
+      <%= render :partial => 'form', :locals => { :f => f} %>
+      <div class="field button">
+        <%= f.submit 'Update Gallery' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_galleries_path %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>
+

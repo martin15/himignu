@@ -1,0 +1,30 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
+<% end %>
+
+<div class="field">
+  <div class="input-title left"><%= f.label :name, "Name * :" %></div>
+  <div class="input-box left">
+    <% if !@information.new_record? && @information.fix_information? %>
+      <%= @information.name %>
+    <% else %>
+      <%= f.text_field :name %>
+    <% end %>
+  </div>
+</div>
+<div class="field">
+  <div class="input-title left"><%= f.label :content, "Content * :" %></div>
+  <div class="input-box left">&nbsp;</div>
+</div>
+<div class="field" style="height:470px;">
+  <%= f.cktext_area :content,
+                    :ckeditor => {:uiColor => "#F5CDFA", :toolbar => "Basic",
+                                  :width=>'800px', :height=>'250px'}  %>
+</div>
+<% if @information.new_record? || !@information.fix_information? %>
+  <div class="field">
+    <div class="input-title left">
+      <%= f.check_box :is_popular %>&nbsp;&nbsp;Is Popular?
+    </div>
+  </div>
+<% end %>

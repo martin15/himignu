@@ -1,0 +1,28 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">Edit Event Images</div>
+  <div class="admin-inner-content-detail">
+    <%= form_for([:admin, @event_image],
+                  :url => admin_event_event_image_path(@event.permalink),
+                  :html => { :multipart => true, :method => :put}) do |f| %>
+      <%= f.error_messages %>
+      <div style="height: 230px;">
+        <%= image_tag @event_image.event_image.url(:medium) %>
+      </div><br /><br />
+      <div class="field">
+        <div class="input-title left"><%= f.label :event_image, "Image * :" %></div>
+        <div class="input-box left"><%= f.file_field :event_image %></div>
+      </div>
+      <div class="field">
+        <div class="input-title left">&nbsp;</div>
+        <div class="input-box left small-font">
+          Input image with size 800x600 (width x height)
+        </div>
+      </div>
+      <div class="field">
+        <%= f.submit 'Update Event Image' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_event_path(@event.id) %>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+</div>

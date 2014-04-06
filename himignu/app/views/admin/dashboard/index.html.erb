@@ -1,0 +1,12 @@
+<div class="admin-inner-content">
+  <div class="admin-inner-content-title">Welcome Admin</div>
+  <div class="admin-inner-content-detail">
+    <%= raw msg_flash(flash) %>
+    <div class="field" style="margin-top:50px;">
+      <%= link_to 'Manage Banner', new_admin_banner_path %>
+    </div>
+    <div class="field">
+      <%= link_to 'Manage Short PPIT', edit_admin_information_path("short-ppit") %>
+    </div>
+  </div>
+</div>
