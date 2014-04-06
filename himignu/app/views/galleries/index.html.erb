@@ -25,7 +25,7 @@
       <% margin += " margin-t" if x>1 %>
       <div class="content-gallery<%= margin %>">
         <div class="content-gallery-image">
-          <%= link_to (image_tag gallery.primary_image),
+          <%= link_to (image_tag gallery.show_primary_image),
                        gallery_path(gallery.permalink) %>
         </div>
         <span class="red-line">&nbsp;</span>

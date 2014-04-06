@@ -5,7 +5,7 @@ class Gallery < ActiveRecord::Base
   has_many :gallery_images, :dependent => :destroy
   validates :name, :presence => true, :uniqueness => true
 
-  def primary_image
+  def show_primary_image
     image = gallery_images.primary.first
     return Gallery.default_image if image.nil?
     return image.gallery_image.url(:medium)
@@ -13,5 +13,9 @@ class Gallery < ActiveRecord::Base
 
   def self.default_image
     "undefined.jpg"
+  end
+
+  def primary_image
+    gallery_images.primary.first
   end
 end
