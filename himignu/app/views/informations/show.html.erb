@@ -2,7 +2,7 @@
   <div class="information-content  ic-size">
     <div class="content-title ic-size">Information</div>
     <div class="content-detail ec-size">
-      <%= msg_flash(flash) %>
+      <%= raw msg_flash(flash) %>
       Ooopss Sorry <br /> Cannot find the Information or There is no Information for this time
     </div>
   </div>
@@ -10,6 +10,7 @@
   <div class="information-content  ic-size">
     <div class="content-title ic-size">Information</div>
     <div class="content-detail ic-size">
+      <%= raw msg_flash(flash) %>
       <div class="content-detail ic-size title">
         <%= @information.name %>
       </div>
