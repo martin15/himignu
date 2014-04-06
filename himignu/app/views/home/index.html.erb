@@ -66,17 +66,19 @@
 <%#*</div>%>
 
 <div class="latest-information">
-  <div class="big-information">
-    <div class="info-title">
-      <%= @popular_event.name %>
+  <% unless @popular_event.nil? %>
+    <div class="big-information">
+      <div class="info-title">
+        <%= @popular_event.name %>
+      </div>
+      <div class="info-content">
+        <%= raw short_desc(@popular_event.content, 80) %>
+      </div>
+      <div class="info-content-more">
+        <%= link_to "MORE", event_path(@popular_event.permalink), :class => "info-button" %>
+      </div>
     </div>
-    <div class="info-content">
-      <%= raw short_desc(@popular_event.content, 80) %>
-    </div>
-    <div class="info-content-more">
-      <%= link_to "MORE", event_path(@popular_event.permalink), :class => "info-button" %>
-    </div>
-  </div>
+  <% end %>
   <div class="small-information">
     <div class="s-title">
       Our Programs
