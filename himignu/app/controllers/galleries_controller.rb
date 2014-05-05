@@ -13,6 +13,7 @@ class GalleriesController < ApplicationController
   private
     def set_page_selection
       @gallery_selected = "selected"
+      @bg_color = "bg-hijau.jpg"
     end
 
     def find_gallery

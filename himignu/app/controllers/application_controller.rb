@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       @data_info = Information.where("is_popular = 1").limit(1)
       @data_info = @data_info.empty? ? "empty" : @data_info[0].permalink
       @data_event = Event.popular_event
-      @data_event = @data_event.empty? ? "empty" : @data_event[0].permalink
+      @data_event = @data_event.nil? ? "empty" : @data_event.permalink
     end
 
 end

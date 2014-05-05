@@ -19,8 +19,9 @@
     });
 </script>
 
-<% unless @event_archive.name.nil? %>
+<% unless @event_archive.new_record? %>
   <div class="field" style="margin-bottom:20px">
+    <%= link_to 'Back', admin_events_path %>&nbsp;&nbsp;|&nbsp;&nbsp;
     <%=  link_to "Add Image", admin_event_archive_path(:id => @event_archive.id,
                                                        :event_id => @event.permalink) %>
     &nbsp;&nbsp;|&nbsp;&nbsp;

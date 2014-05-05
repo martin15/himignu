@@ -29,7 +29,8 @@
           <% end %>
         </div>
         <div class="event-action">
-          <%= link_to 'Add Image', admin_event_path(event.permalink) %>&nbsp;|&nbsp;
+          <%#= link_to 'Add Image', admin_event_path(event.permalink) %>
+          <%#*&nbsp;|&nbsp;%>
           <%= link_to 'Edit', edit_admin_event_path(event.permalink) %>&nbsp;|&nbsp;
           <%= link_to 'Delete', admin_event_path(event.permalink),
               :confirm => "Are you sure?", :method => :delete %>&nbsp;|&nbsp;

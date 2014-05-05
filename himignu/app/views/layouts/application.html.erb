@@ -7,7 +7,7 @@
   <%= yield :javascript_includes %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="background: url('../assets/<%= @bg_color %>') repeat;">
   <div id="container">
     <% id_name = params[:controller]== "home" ? "-home" : "" %>
     <!--<div id="header-container<%#= id_name %>">-->
@@ -55,8 +55,20 @@
             </li>
           </ul>
           <br />
-          Copyright © 2014, HIMIGNU - all rights reserved
+          Copyright © 2014, HIMIGNU - all rights reserved<br /><br />
+          <%= link_to "biru-muda", "javascript:void(0)", :onclick => "change_bg('bg-biru-muda.jpg')" %>&nbsp;&nbsp;
+          <%= link_to "biru-tua", "javascript:void(0)", :onclick => "change_bg('bg-biru-tua.jpg')" %>&nbsp;&nbsp;
+          <%= link_to "hijau", "javascript:void(0)", :onclick => "change_bg('bg-green.jpg')" %>&nbsp;&nbsp;
+          <%= link_to "hijau-tosca", "javascript:void(0)", :onclick => "change_bg('bg-ijo-tosca.jpg')" %>&nbsp;&nbsp;
+          <%= link_to "merah", "javascript:void(0)", :onclick => "change_bg('bg-red.jpg')" %>
+          <%= link_to "coklat", "javascript:void(0)", :onclick => "change_bg('bg-coklat-muda.jpg')" %>
         </div>
+  <script type="text/javascript">
+    function change_bg(id){
+      $("body").css("background", "url('../assets/"+ id +"')");
+      //$("body").style.backgroundImage = 'url(' + id + ')';
+    }
+  </script>
         <div class="contact-us">
           <div class="c-title">contact us</div>
           <div class="c-content">

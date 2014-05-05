@@ -2,7 +2,6 @@
   <div class="event-content ec-size">
     <div class="content-title ec-size">Event</div>
     <div class="content-detail ec-size">
-      <%= msg_flash(flash) %>
       Ooopss Sorry <br /> Cannot find the Event or There is no Event for this time
     </div>
   </div>
@@ -27,8 +26,8 @@
     });
   </script>
 
-  <div class="event-content ec-size">
-    <div class="content-title ec-size">Event</div>
+  <div class="event-content">
+    <div class="content-title ec-size"><%= @event.try(:theme) %></div>
     <div class="content-detail ec-size">
       <div class="event-image">
         <% if @event_images.empty? %>
@@ -42,48 +41,51 @@
         <% end %>
       </div>
       <div class="event-detail">
-        <div class="event-name">
-          <b>Name :</b> <%= @event.name.titleize %>
-        </div>
         <% if @event.is_archive? %>
-          <div class="event-theme">
-            <b>Theme :</b> <%= @event.theme.titleize %>
-          </div>
           <div class="event-date">
             <b>Date :</b> <%= @event.held_on.strftime("%d-%B-%Y") %>
           </div>
-        <% else %>
           <div class="event-archive">
             <b>Archive :</b>
-            <% @event.archives.each do |archive| %>
+            <% @event.event.archives.each do |archive| %>
             <span>
-              <%= link_to archive.year, event_path(archive.permalink) %>
+              <% if archive.year == @event.year %>
+                <%= @event.year %>
+              <% else %>
+                <%= link_to archive.year, event_path(archive.permalink) %>
+              <% end %>
             </span>
           <% end %>
           </div>
         <% end %>
         <div class="event-info">
-          <b>Info :</b> <br />
           <%= raw @event.content %>
         </div>
       </div>
     </div>
   </div>
-  <div class="event-menu em-size">
-    <div class="event-menu-title em-size">
+  <div class="event-menu">
+    <div class="event-menu-title">
       related events
     </div>
-    <div class="event-menu-detail em-size">
+    <div class="event-menu-detail">
       <ul>
         <% @main_events.each do |main_event| %>
-          <li><%= link_to main_event.name, event_path(main_event.permalink) %></li>
+          <li>
+            <% popular_child = main_event.popular_event %>
+            <% if popular_child.nil?  %>
+              <%= main_event.name %>
+            <% else %>
+              <%= link_to main_event.name, event_path(popular_child.permalink) %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </div>
-    <div class="event-menu-title em-size">
+    <div class="event-menu-title menu-blue ">
       Archive events
     </div>
-    <div class="event-menu-detail em-size archive">
+    <div class="event-menu-detail archive event-border-blue">
       <ul>
         <% @archive_events.each do |year, events| %>
           <li><%= link_to year, "javascript:void(0)",

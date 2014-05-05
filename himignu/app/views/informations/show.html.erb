@@ -7,21 +7,18 @@
     </div>
   </div>
 <% else %>
-  <div class="information-content  ic-size">
-    <div class="content-title ic-size">Information</div>
+  <div class="information-content">
+    <div class="content-title ic-size"><%= @information.name %></div>
     <div class="content-detail ic-size">
       <%= raw msg_flash(flash) %>
-      <div class="content-detail ic-size title">
-        <%= @information.name %>
-      </div>
       <%= raw @information.content %>
     </div>
   </div>
-  <div class="information-menu im-size">
-    <div class="information-menu-title im-size" style="margin-bottom:20px;">
+  <div class="information-menu">
+    <div class="information-menu-title">
       related informations
     </div>
-    <div class="information-menu-detail im-size">
+    <div class="information-menu-detail">
       <ul>
         <% @informations.each do |information| %>
           <li><%= link_to information.name, information_path(information.permalink) %></li>

@@ -7,12 +7,14 @@
   <div class="input-box left"><%= f.text_field :name %></div>
 </div>
 
-<div class="field">
-  <div class="input-title left"><%= f.label :content, "Content * :" %></div>
-  <div class="input-box left">&nbsp;</div>
-</div>
-<div class="field" style="height:450px;">
-  <%= f.cktext_area :content,
+<%#*<div class="field">%>
+  <%#*<div class="input-title left">%>
+    <%#= f.label :content, "Content * :" %>
+  <%#*</div>%>
+  <%#*<div class="input-box left">&nbsp;</div>%>
+<%#*</div>%>
+<%#*<div class="field" style="height:450px;">%>
+  <%#= f.cktext_area :content,
                     :ckeditor => {:uiColor => "#F5CDFA", :toolbar => "Basic",
                                   :width=>'800px', :height=>'250px'}  %>
-</div>
+<%#*</div>%>

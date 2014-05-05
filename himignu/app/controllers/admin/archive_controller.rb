@@ -18,7 +18,6 @@ class Admin::ArchiveController < Admin::ApplicationController
       flash[:notice] = "Event Archive successfully created"
       redirect_to admin_events_path
     else
-      @list_year = Event.list_year
       flash[:error] = "Event Archive failed to create"
       render :action => "new"
     end

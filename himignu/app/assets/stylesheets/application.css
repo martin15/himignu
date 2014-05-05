@@ -50,7 +50,7 @@ p { font-size: 13px; line-height: 1.6em; margin-bottom: 13px;}
 body {
   font: 14px Cabin-Regular, Verdana, arial, sans-serif;
   margin: 0 auto;
-  background: url('../assets/bg.jpg') repeat;
+/*  background: url('../assets/bg-merah.jpg') repeat;*/
   background-attachment: fixed;
   color: #000;
 }
@@ -164,7 +164,8 @@ body {
 
 /*================================FOOTER================================================*/
 #footer {
-  background-color: whitesmoke;
+/*  background-color: whitesmoke;*/
+  background-color: white;
   height: 175px;
   padding: 15px 25px 0 25px;
   margin: 0 auto;
@@ -445,7 +446,8 @@ body {
 
 /*===================CONTENT===========================================*/
 .content{
-  background-color: whitesmoke;
+/*  background-color: whitesmoke;*/
+  background-color: #ffffff;
   width: 800px;
   min-height: 400px;
   margin: 0 auto;
@@ -455,7 +457,7 @@ body {
 
 .content-title{
   width: 800px;
-  height: 50px;
+  min-height: 50px;
   float: left;
   font-size: 40px;
   text-transform: uppercase;
@@ -467,6 +469,17 @@ body {
   margin-top: 20px;
   line-height: 25px;
   text-align: justify;
+}
+.content-detail ol, .content-detail ul{
+  margin-left: 30px;
+}
+
+.content-detail ol li{
+  list-style-type: decimal;
+}
+
+.content-detail ul li{
+  list-style-type: disc;
 }
 
 .im-size, .em-size{
@@ -480,24 +493,60 @@ body {
 .information-content, .event-content{
   float: left;
   height: auto;
-  margin: 0 50px 10px 0;
+  margin: 0 40px 10px 0;
+  width: 550px!important;
 }
 
 .information-menu, .event-menu{
   float: left;
   height: auto;
+  width: 210px!important;
 }
 
 .information-menu-title, .event-menu-title{
   float: left;
-  height: 50px;
+  height: 70px;
   font-size: 22px;
   text-transform: uppercase;
   margin-top: 70px;
+  padding:10px;
+  width: 190px!important;
+}
+
+.information-menu-title{
+  background-color: #7cb337;
+  color: #ffffff;
+}
+
+.event-menu-title{
+  background-color: #EC1E24;
+  color: #ffffff;
+}
+
+.menu-blue{
+  background-color: #1097d9;
+  color: #ffffff;
 }
 
 .information-menu-detail, .event-menu-detail{
   float: left;
+  padding: 10px;
+/*  background-color: #ffffff;*/
+  background-color: whitesmoke;
+  width: 190px;
+  min-height: 200px;
+}
+
+.information-menu-detail{
+  border-bottom: solid 10px #7cb337;
+}
+
+.event-menu-detail{
+  border-bottom: solid 10px #EC1E24;
+}
+
+.event-border-blue{
+  border-bottom: solid 10px #1097d9;
 }
 
 .information-content .title{
@@ -514,14 +563,22 @@ body {
   z-index: -9999;
 }
 
-.event-name{
-  font-size: 20px;
-}
-
-.event-name, .event-detail, .event-info, .event-archive, .event-theme,
+.event-detail, .event-info, .event-archive,
 .event-date{
   float: left;
   width: 550px;
+}
+
+.event-archive{
+  margin-bottom: 10px;
+}
+
+.event-archive span{
+  margin-right: 6px;
+}
+
+.event-archive span a{
+  text-decoration: underline;
 }
 
 .event-menu .archive ul li {

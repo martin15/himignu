@@ -8,21 +8,41 @@ class Event < ActiveRecord::Base
   belongs_to :event, :class_name => "Event", :foreign_key => "event_id"
   validates :name, :presence => true, :uniqueness => {:unless => :is_archive?, :on => :create}
   validates :held_on, :presence => {:if => :is_archive?}
-  validates :content, :presence => true
+  validates :theme, :presence => {:if => :is_archive?}
+  validates :content, :presence => {:if => :is_archive?}
 
+  before_save :validate_is_popular
   scope :main_events, where("event_id is NULL")
   scope :all_archives, where("event_id is not NULL")
-  scope :popular_event, where("is_popular = true")
+  scope :popular_main_event, where("is_popular = true")
+
+  def self.popular_event
+    parent_popular = self.popular_main_event
+    return nil if parent_popular.empty?
+    return parent_popular.first.archives.sort_by(&:held_on).reverse.first
+  end
+
+  def popular_event
+    childs = self.archives
+    return nil if childs.empty?
+    return childs.sort_by(&:held_on).reverse.first
+  end
 
   def is_archive?
     return !self.event_id.nil?
   end
 
   def set_popular_event
-    Event.popular_event.each do |event|
+    Event.popular_main_event.each do |event|
       event.unset_popular
     end
     self.set_popular
+  end
+
+  def validate_is_popular
+    if Event.popular_main_event.empty?
+      self.is_archive? ? self.event.set_popular : (self.is_popular = true)
+    end
   end
 
   protected
