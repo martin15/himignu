@@ -3,8 +3,7 @@ class Admin::InformationsController < Admin::ApplicationController
   before_filter :find_information, :only => [:destroy, :edit, :update, :show]
 
   def index
-    names = ["About Us", "PPIT", "Short PPIT"]
-    @informations = Information.where('name not in (?)', names).
+    @informations = Information.other_informations.
                                 paginate(:page => params[:page], :per_page => 10,
                                   :order => "created_at DESC" )
     @no = params[:page].to_i * 10
@@ -27,7 +26,7 @@ class Admin::InformationsController < Admin::ApplicationController
 
   def edit
     (@ppit_selected = "selected";@information_selected="") if params[:id] == "ppit"
-    (@about_selected = "selected";@information_selected="") if params[:id] == "about-us"
+    (@about_selected = "selected";@information_selected="") if @information.about_us?
   end
 
   def update

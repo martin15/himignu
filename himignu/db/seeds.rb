@@ -7,8 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-about_us = Information.find_or_create_by_name(:name => "About Us", :content => "About Us")
-puts about_us.inspect
+himignu = Information.find_or_create_by_name(:name => "Himignu", :content => "himignu")
+puts himignu.inspect
+
+gxnu = Information.find_or_create_by_name(:name => "Guangxi Normal University",
+                                          :content => "Guangxi Normal University")
+puts gxnu.inspect
+
+guilin = Information.find_or_create_by_name(:name => "Guilin", :content => "guilin")
+puts guilin.inspect
 
 ppit = Information.find_or_create_by_name(:name => "PPIT", :content => "PPIT")
 puts ppit.inspect

@@ -5,7 +5,7 @@ Himignu::Application.routes.draw do
   resources :informations, :only => [:index, :show]
   resources :events, :only => [:show]
   resources :galleries, :only => [:index, :show]
-  get "about_us" => "about_us#index", :as => "about_us"
+  get "about_us/:id" => "about_us#show", :as => "about_us"
   get "ppit" => "ppit#index", :as => "ppit"
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"

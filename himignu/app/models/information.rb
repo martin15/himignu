@@ -7,11 +7,16 @@ class Information < ActiveRecord::Base
   validates :content, :presence => true
 
   before_destroy :validate_info_name
-  scope :other_informations, where("name NOT IN ('About Us', 'PPIT', 'Short PPIT')")
+  scope :other_informations, where("name NOT IN ('About Us', 'PPIT', 'Short PPIT', 'Himignu',
+                                                 'Guangxi Normal University', 'Guilin')")
 
   def fix_information?
-    return true if ["About Us", "PPIT", "Short PPIT"].include?(name)
+    return true if ["Himignu", "Guangxi Normal University", "Guilin", "PPIT", "Short PPIT"].include?(name)
     return false
+  end
+
+  def about_us?
+    ["himignu", "guangxi-normal-university", "guilin"].include?(permalink)
   end
 
   def validate_info_name

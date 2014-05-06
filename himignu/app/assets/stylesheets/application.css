@@ -403,7 +403,8 @@ body {
 
 .small-information .s-content ul li,
 .information-menu ul li,
-.event-menu ul li{
+.event-menu ul li,
+.about-us-menu-detail ul li{
   background: url("../assets/arrow-list.png") no-repeat;
   background-position: center left;
   text-transform: uppercase;
@@ -459,7 +460,7 @@ body {
   width: 800px;
   min-height: 50px;
   float: left;
-  font-size: 40px;
+  font-size: 39px;
   text-transform: uppercase;
 }
 
@@ -482,11 +483,11 @@ body {
   list-style-type: disc;
 }
 
-.im-size, .em-size{
+.im-size, .em-size, .am-size{
   width: 200px!important;
 }
 
-.ic-size, .ec-size{
+.ic-size, .ec-size, .ac-size{
   width: 550px!important;
 }
 
@@ -497,13 +498,13 @@ body {
   width: 550px!important;
 }
 
-.information-menu, .event-menu{
+.information-menu, .event-menu, .about-us-menu{
   float: left;
   height: auto;
   width: 210px!important;
 }
 
-.information-menu-title, .event-menu-title{
+.information-menu-title, .event-menu-title, .about-us-menu-title{
   float: left;
   height: 70px;
   font-size: 22px;
@@ -511,24 +512,26 @@ body {
   margin-top: 70px;
   padding:10px;
   width: 190px!important;
+  color: #ffffff;
 }
 
 .information-menu-title{
   background-color: #7cb337;
-  color: #ffffff;
 }
 
 .event-menu-title{
   background-color: #EC1E24;
-  color: #ffffff;
+}
+
+.about-us-menu-title{
+  background-color: orange;
 }
 
 .menu-blue{
   background-color: #1097d9;
-  color: #ffffff;
 }
 
-.information-menu-detail, .event-menu-detail{
+.information-menu-detail, .event-menu-detail, .about-us-menu-detail{
   float: left;
   padding: 10px;
 /*  background-color: #ffffff;*/

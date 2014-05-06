@@ -25,7 +25,7 @@
               <%= link_to raw("GALLERY"), galleries_path %>
             </li>
             <li class="<%= @about_selected %>">
-              <%= link_to raw("ABOUT US"), about_us_path %>
+              <%= link_to raw("ABOUT US"), about_us_path("himignu") %>
             </li>
             <li class="<%= @ppit_selected %>">
               <%= link_to raw("PPIT"), ppit_path %>
@@ -48,7 +48,7 @@
             <li><%= link_to raw("HOME"), root_path %></li>
             <li><%= link_to raw("EVENT"), event_path(@data_event) %></li>
             <li><%= link_to raw("GALLERY"), galleries_path %></li>
-            <li><%= link_to raw("ABOUT US"), about_us_path %></li>
+            <li><%= link_to raw("ABOUT US"), about_us_path("himignu") %></li>
             <li><%= link_to raw("PPIT"), ppit_path %></li>
             <li class="no-border">
               <%= link_to raw("INFO"), information_path(@data_info) %>

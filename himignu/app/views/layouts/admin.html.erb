@@ -23,7 +23,7 @@
             <%= link_to raw("GALLERY"), admin_galleries_path %>
           </li>
           <li class="<%= @about_selected %>">
-            <%= link_to raw("ABOUT US"), edit_admin_information_path("about-us") %>
+            <%= link_to raw("ABOUT US"), edit_admin_information_path("himignu") %>
           </li>
           <li class="<%= @ppit_selected %>">
             <%= link_to raw("PPIT"), edit_admin_information_path("ppit") %>
@@ -48,10 +48,10 @@
         <ul>
           <li><%= link_to raw("HOME"), admin_path %></li>
           <li><%= link_to raw("EVENT"), admin_events_path %></li>
-          <li><%= link_to raw("GALLERY"), "#" %></li>
-          <li><%= link_to raw("ABOUT US"), about_us_path %></li>
-          <li><%= link_to raw("PPIT"), about_us_path %></li>
-          <li class="no-border"><%= link_to raw("INFO"), informations_path %></li>
+          <li><%= link_to raw("GALLERY"), admin_galleries_path %></li>
+          <li><%= link_to raw("ABOUT US"), edit_admin_information_path("himignu") %></li>
+          <li><%= link_to raw("PPIT"), edit_admin_information_path("ppit") %></li>
+          <li class="no-border"><%= link_to raw("INFO"), admin_informations_path %></li>
         </ul>
         <br />
         Copyright © 2014, HIMIGNU - all rights reserved

@@ -5,6 +5,13 @@
     <%= form_for([:admin, @information], :url => admin_information_path,
                   :html => { :multipart => true, :method => :put }) do |f| %>
       <%= f.error_messages %>
+      <% if @information.about_us? %>
+        <%= link_to "himignu", edit_admin_information_path("himignu") %>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <%= link_to "gxnu", edit_admin_information_path("guangxi-normal-university") %>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <%= link_to "guilin", edit_admin_information_path("guilin") %>
+      <% end %><br /><br /><br />
       <%= render :partial => 'form', :locals => { :f => f} %>
       <div class="field button">
         <%= f.submit 'Update Information' %>&nbsp;&nbsp;

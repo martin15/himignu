@@ -1,0 +1,22 @@
+<div class="information-content">
+  <div class="content-title ac-size">
+    <%#= @about_us.name == 'gxnu' ? 'Guangxi Normal University' : @about_us.name %>
+    <%= @about_us.name %>
+  </div>
+  <div class="content-detail ac-size">
+    <%= raw msg_flash(flash) %>
+    <%= raw @about_us.content %>
+  </div>
+</div>
+<div class="about-us-menu">
+  <div class="about-us-menu-title">
+    related informations
+  </div>
+  <div class="about-us-menu-detail">
+    <ul>
+      <li><%= link_to "HIMIGNU", about_us_path("himignu") %></li>
+      <li><%= link_to "Guangxi Normal University", about_us_path("guangxi-normal-university") %></li>
+      <li><%= link_to "Guilin", about_us_path("guilin") %></li>
+    </ul>
+  </div>
+</div>
