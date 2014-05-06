@@ -4,6 +4,7 @@
     <%= form_for([:admin, @gallery],
                   :url => admin_gallery_gallery_images_path(@gallery.permalink),
                   :html => { :multipart => true, :method => :post}) do |f| %>
+      <%= raw msg_flash(flash) %>
       <%= f.error_messages %>
       <div class="field clear-margin">
         <div class="input-title left"><%= f.label :gallery_image, "Image * :" %></div>

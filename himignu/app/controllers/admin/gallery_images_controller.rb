@@ -6,6 +6,11 @@ class Admin::GalleryImagesController < Admin::ApplicationController
                                                :update, :set_primary]
 
   def create
+    if params[:gallery].nil?
+      flash[:error] = "Gallery Image failed to create"
+      redirect_to admin_gallery_path(@gallery.permalink)
+      return
+    end
     @gallery_image = GalleryImage.new(:gallery_image => params[:gallery][:gallery_image])
     @gallery_image.gallery = @gallery
     if @gallery_image.save

@@ -9,7 +9,7 @@
         $('input#mydate').glDatePicker({
           onClick: function(target, cell, date, data) {
             target.val(date.getFullYear() + '-' +
-                date.getMonth() + '-' +
+                (date.getMonth()+1) + '-' +
                 date.getDate());
             if(data != null) {
                 alert(data.message + '\n' + date);
@@ -37,7 +37,7 @@
 </div>
 
 <div class="field">
-  <div class="input-title left"><%= f.label :theme, "Theme :" %></div>
+  <div class="input-title left"><%= f.label :theme, "Theme * :" %></div>
   <div class="input-box left"><%= f.text_field :theme %></div>
 </div>
 
