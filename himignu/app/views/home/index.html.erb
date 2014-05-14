@@ -87,7 +87,10 @@
     <div class="s-content">
       <ul>
         <% @events.each do |event| %>
-          <li><%= link_to event.name, event_path(event.permalink) %></li>
+          <% child = event.popular_event %>
+          <% unless child.nil? %>
+            <li><%= link_to event.name, event_path(child.permalink) %></li>
+          <% end %>
         <% end %>
       </ul>
     </div>
