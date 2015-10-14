@@ -58,22 +58,27 @@
           <br />
           Copyright © 2014, HIMIGNU - all rights reserved<br /><br />
         </div>
-  <script type="text/javascript">
-    function change_bg(id){
-      $("body").css("background", "url('../assets/"+ id +"')");
-      //$("body").style.backgroundImage = 'url(' + id + ')';
-    }
-  </script>
-        <div class="contact-us">
+        <script type="text/javascript">
+          function change_bg(id){
+            $("body").css("background", "url('../assets/"+ id +"')");
+            //$("body").style.backgroundImage = 'url(' + id + ')';
+          }
+        </script>
+        <div class="contact-us" style="margin-bottom:30px">
           <div class="c-title">contact us</div>
           <div class="c-content">
-            <span>Guang Xi Normal University</span>
-            <span>Yucai road 15</span>
-            <span>Guilin, China</span>
-            <span>Phone +86 13647866875</span>
-            <%= image_tag "mail.png" %>&nbsp;&nbsp;himignu.guilin@live.com<br />
+            <%#*<span>Guang Xi Normal University</span>%>
+            <%#*<span>Yucai road 15</span>%>
+            <%#*<span>Guilin, China</span>%>
+            <%#*<span>Phone +86 13647866875</span>%>
+            <%#= image_tag "mail.png" %>&nbsp;&nbsp;
+            <%#*himignu.guilin@live.com<br />%>
+            <%= raw(@contact_us.try(:content)) %>
           </div>
         </div>
+        <div class="clear">
+        </div>
+
       </div>
     <%#*</div>%>
   </div>

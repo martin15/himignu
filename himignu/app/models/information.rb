@@ -8,15 +8,15 @@ class Information < ActiveRecord::Base
 
   before_destroy :validate_info_name
   scope :other_informations, where("name NOT IN ('About Us', 'PPIT', 'Short PPIT', 'Himignu',
-                                                 'Guangxi Normal University', 'Guilin')")
+                                                 'Guangxi Normal University', 'Guilin', 'Contact Us')")
 
   def fix_information?
-    return true if ["Himignu", "Guangxi Normal University", "Guilin", "PPIT", "Short PPIT"].include?(name)
+    return true if ["Himignu", "Guangxi Normal University", "Guilin", "PPIT", "Short PPIT", "Contact Us"].include?(name)
     return false
   end
 
   def about_us?
-    ["himignu", "guangxi-normal-university", "guilin"].include?(permalink)
+    ["himignu", "guangxi-normal-university", "guilin", "contact-us"].include?(permalink)
   end
 
   def validate_info_name

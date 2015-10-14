@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
       @data_info = @data_info.empty? ? "empty" : @data_info[0].permalink
       @data_event = Event.popular_event
       @data_event = @data_event.nil? ? "empty" : @data_event.permalink
+      @contact_us = Information.find_by_name("Contact Us")
     end
 
 end

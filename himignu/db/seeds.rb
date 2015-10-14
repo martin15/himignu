@@ -28,3 +28,13 @@ admin = User.find_or_create_by_email( :email => "martin.me15@yahoo.com", :name =
                                         :religion => "cristian", :password => "1qazse4rfv",
                                         :password_confirmation => "1qazse4rfv")
 puts admin.inspect
+
+contact_us = Information.find_or_create_by_name(:name => "Contact Us",
+                                        :content => "<span>Guang Xi Normal University</span>
+                                                     <span>Yucai road 15</span>
+                                                     <span>Guilin, China</span>
+                                                     <span>Phone +86 13647866875</span>
+                                                     <img src='/assets/mail.png' alt='Mail'>
+                                                     &nbsp;&nbsp;himignu.guilin@live.com<br>")
+puts contact_us.inspect
+
